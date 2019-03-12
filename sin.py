@@ -14,7 +14,7 @@ def sin(x):
     # (sign of the term) to 1.
     term = 1.0
     sign = 1
-    
+
     # Initialize i to 1.
     i = 1
 
@@ -29,7 +29,7 @@ def sin(x):
         if i % 2 != 0:
             total += sign * term
             sign *= -1
-        
+
         # Increment i by 1.
         i += 1
 

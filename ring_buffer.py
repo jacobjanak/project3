@@ -35,12 +35,7 @@ def size(rb):
     Return the number of items currently in the buffer rb.
     """
 
-    count = 0
-    for i in rb[0]:
-        if i != None:
-            count += 1
-
-    return count
+    return rb[1]
 
 
 def is_empty(rb):
@@ -49,7 +44,7 @@ def is_empty(rb):
     """
 
     for i in rb[0]:
-        if i != None:
+        if i is not None:
             return False
 
     return True
@@ -61,7 +56,7 @@ def is_full(rb):
     """
 
     for i in rb[0]:
-        if i == None:
+        if i is None:
             return False
 
     return True
@@ -75,14 +70,19 @@ def enqueue(rb, x):
     if is_full(rb):
         sys.exit("Error: cannot enqueue a full buffer")
 
-    # first and last are 'None' when buffer is empty
-    if rb[2] == None:
+    # size, first and last are 'None' when buffer is empty
+    if rb[1] is None:
+        rb[1] = 0
+    if rb[2] is None:
         rb[2] = 0
-    if rb[3] == None:
+    if rb[3] is None:
         rb[3] = 0
 
     # add x to buffer at the last index
     rb[0][rb[3]] = x
+
+    # increment size
+    rb[1] += 1
 
     # increment last cyclically
     rb[3] += 1
@@ -102,6 +102,9 @@ def dequeue(rb):
     item = rb[0][rb[2]]
     rb[0][rb[2]] = None
 
+    # decrement size
+    rb[1] -= 1
+
     # increment first cyclically
     rb[2] += 1
     if rb[2] >= capacity(rb):
@@ -109,6 +112,7 @@ def dequeue(rb):
 
     # Reset first and last to None if buffer is empty (not necessary)
     if (is_empty(rb)):
+        rb[1] = None
         rb[2] = None
         rb[3] = None
 

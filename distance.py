@@ -7,7 +7,7 @@ import sys
 # between corresponding entries. You may assume that x and y have
 # the same length.
 def distance(x, y):
-    
+
     # Initialize total to 0.0.
     total = 0.0
 

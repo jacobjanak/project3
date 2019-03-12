@@ -30,6 +30,7 @@ def create(frequency):
         rb[i] = 0.0
 
     # Initialize the first and last values to index 0
+    rb[1] = 0
     rb[2] = 0
     rb[3] = 0
 
@@ -49,10 +50,11 @@ def create_from_samples(init):
     for i in range(len(string[0])):
         string[0][i] = init[i]
 
-    # Initialize the first and last values to index 0
+    # Initialize size and the first and last values to index 0
+    string[1] = len(init)
     string[2] = 0
     string[3] = 0
-    
+
     return string
 
 

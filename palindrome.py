@@ -6,7 +6,7 @@ import sys
 # assume that s is all lower case and doesn't any whitespace
 # characters.
 def is_palindrome(s):
-    
+
     # Iterate over half of the string s.
     for i in range(len(s) // 2):
 

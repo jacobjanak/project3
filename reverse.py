@@ -14,6 +14,7 @@ def reverse(a):
         a[i] = a[len(a) - i - 1]
         a[len(a) - i - 1] = temp
 
+
 # Test client [DO NOT EDIT].
 def _main():
     a = stdio.readAllStrings()

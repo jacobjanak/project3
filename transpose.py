@@ -21,7 +21,7 @@ def transpose(a):
         for j in range(m):
             if 0 <= i < n and 0 <= j < m:
                 c[i][j] = a[j][i]
-            
+
     # Return c.
     return c
 

@@ -1,11 +1,47 @@
-1. Hours to complete the project: ... hours
+1. Hours to complete the project: 3 hours
 
 2. Provide a short description of how you approached each problem, issues you 
    encountered, and how you resolved those issues.
 
-   Problem 1 (Ring Buffer): ...
+   Problem 1 (Ring Buffer):
+   This problem was definitely tricky to get started on. It was hard to know
+   what format to use for the ring buffer because the instructions didn't give
+   us an obvious diagram of what the list would look like and what the elements
+   would represent. As I progressed through these two problems, I gradually
+   got a better understanding of what rb[0] through rb[3] were for. I ended up
+   passing the test for problem 1 before I actually got it right, since the
+   test just looks at the size function and doesn't *really* test enqueue or
+   dequeue. My mistake was that I didn't treat the buffer as a cyclical list,
+   I just kept the first element at rb[0][0]. Because of that, I didn't
+   understand the need for rb[2] or rb[3]. I still don't understand the need
+   for rb[1] since it's pretty easy to calculate the size of the buffer by
+   counting the values in rb[0] that are not None. I know it's more expensive
+   to do it that way, but the size seems to not be particlurly useful in this
+   program. After I got about halfway through problem 2, I realized that I
+   needed to make my buffer in problem 1 cyclical. The only tricky part of that
+   for me was the fact that rb[1] through rb[3] are supposed to be 'None' when
+   the buffer is empty. It was a little tough writing all the extra code
+   to make that happen. I'm sure some of the code I wrote is unnecessary, but I
+   wanted to make sure you could empty the buffer and re-fill it if you needed
+   to. I feel like the default values of rb[1] to rb[3] should be zero, not
+   None. It would make the calculations a lot easier.
 
-   Problem 2 (Guitar String): ...
+   Problem 2 (Guitar String):
+   I cruised through this one pretty easily. The toughest/most annoying part
+   was the fact that some of the values in the ring buffer are supposed to be
+   defaulted to None. I would prefer if the default value for 'size', 'first',
+   and 'last' were zero because that would make my job easier. I found the best
+   way to get around this is to just initialize them to zero in my create() and
+   create_from_samples() functions (in the latter, the size would be the length
+   of the sample list). I feel like I'm doing something wrong there because
+   the instructions don't mention anything about initializing the values like
+   this but it makes sense to me and it works. Also, I'm not sure if my code
+   for white noise is 100% correct: string[0][i] = math.random() - 0.5
+   The problem with it is the value would never be exactly 0.500000. I feel
+   like it's fine for the purpose of this project. Other than that, I don't
+   really have much to write about for this one. The code was easy, but
+   understanding the writeup was a little tricky. Once I understood it, I didn't
+   have issues implimenting it.
 
 3. Did you receive help from anyone? List their names, status (classmate, 
    CS110 grad, TA, other), and the nature of help received.
@@ -19,4 +55,6 @@
    much you learned from doing the assignment, and whether you enjoyed
    doing it.
 
-   ...
+   I enjoyed this project. Like the other projects, I feel like the challenge
+   is reading and understanding the writeup/checklist, and the easy part is the
+   code.
