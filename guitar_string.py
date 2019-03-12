@@ -27,7 +27,7 @@ def create(frequency):
 
     # replace all the None values in the buffer with 0.0
     for i in range(len(rb[0])):
-        rb[i] = 0.0
+        rb[0][i] = 0.0
 
     # Initialize the first and last values to index 0
     rb[1] = 0
@@ -64,7 +64,7 @@ def pluck(string):
     """
 
     for i in range(len(string[0])):
-        string[0][i] = math.random() - 0.5
+        string[0][i] = random.random() - 0.5
 
 
 def tic(string):
