@@ -107,7 +107,13 @@ def dequeue(rb):
     if rb[2] >= capacity(rb):
         rb[2] = 0
 
+    # Reset first and last to None if buffer is empty (not necessary)
+    if (is_empty(rb)):
+        rb[2] = None
+        rb[3] = None
+
     return item
+
 
 def peek(rb):
     """
@@ -118,6 +124,7 @@ def peek(rb):
         sys.exit("Error: cannot peek an empty buffer")
 
     return rb[0][rb[2]]
+
 
 def _main():
     """

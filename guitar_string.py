@@ -23,7 +23,18 @@ def create(frequency):
     integer), with all values initialized to 0.0.
     """
 
-    return ring_buffer.create(math.ceil(SPS / frequency))
+    rb = ring_buffer.create(math.ceil(SPS / frequency))
+
+    # replace all the None values in the buffer with 0.0
+    for i in range(len(rb[0])):
+        rb[i] = 0.0
+
+    # Initialize the first and last values to index 0
+    rb[2] = 0
+    rb[3] = 0
+
+    return rb
+
 
 def create_from_samples(init):
     """
@@ -31,9 +42,19 @@ def create_from_samples(init):
     by the list init.
     """
 
+    # create the string
     string = ring_buffer.create(len(init))
+
+    # Replace the values within the buffer with sample value
     for i in range(len(string[0])):
         string[0][i] = init[i]
+
+    # Initialize the first and last values to index 0
+    string[2] = 0
+    string[3] = 0
+    
+    return string
+
 
 def pluck(string):
     """
@@ -41,7 +62,8 @@ def pluck(string):
     """
 
     for i in range(len(string[0])):
-            string[0][i] = math.random() - 0.5
+        string[0][i] = math.random() - 0.5
+
 
 def tic(string):
     """
@@ -49,14 +71,20 @@ def tic(string):
     the Karplus-Strong update.
     """
 
-    ...
+    # get values of the first two elements in the buffer
+    value1 = ring_buffer.dequeue(string)
+    value2 = ring_buffer.peek(string)
+
+    # apply the Karplus-Strong update
+    ring_buffer.enqueue(string, .996 * 0.5 * (value1 + value2))
+
 
 def sample(string):
     """
     Return the current sample from the given guitar string.
     """
 
-    ...
+    return ring_buffer.peek(string)
 
 
 def _main():

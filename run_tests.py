@@ -110,6 +110,7 @@ class Problem1(unittest.TestCase):
 class Problem2(unittest.TestCase):
 
     def test1(self):
+        self.maxDiff = None
         command = "python3 guitar_string.py 25"
         sought = """     0   0.2000
      1   0.4000
