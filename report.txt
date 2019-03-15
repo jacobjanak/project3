@@ -1,4 +1,4 @@
-1. Hours to complete the project: 3 hours
+1. Hours to complete the project: 4 hours
 
 2. Provide a short description of how you approached each problem, issues you 
    encountered, and how you resolved those issues.
@@ -10,27 +10,28 @@
    passing the test for problem 1 before I actually got it right, since the
    test just looks at the size function and doesn't *really* test enqueue or
    dequeue. My mistake was that I didn't treat the buffer as a cyclical list,
-   I just kept the first element at rb[0][0]. I still don't understand the need
-   for rb[1] since it's pretty easy to calculate the size of the buffer by
-   counting the values in rb[0] that are not None. I know it's more expensive
-   to do it that way, but the size seems to not be particlurly useful in this
-   program. After I got about halfway through problem 2, I realized that I
+   I just kept the first element at rb[0][0].
+   After I got about halfway through problem 2, I realized that I
    needed to make my buffer in problem 1 cyclical. The only tricky part of that
    for me was the fact that rb[1] through rb[3] are supposed to be 'None' when
    the buffer is empty. It was a little tough writing all the extra code
-   to make that happen. I'm sure some of the code I wrote is unnecessary, but I
+   to make that happen. I think some of the code I wrote is unnecessary, but I
    wanted to make sure you could empty the buffer and re-fill it if you needed
    to. I feel like the default values of rb[1] to rb[3] should be zero, not
    None. It would make the calculations a lot easier.
+   After submitting this project, Professor Swami Iyer told me that my code
+   for is_empty() and is_full() was inefficient because I didn't utilize the
+   size() function to compare the size with the capacity. That was a silly
+   mistake on my part, but an easy fix. Other than that, this was easy for me.
 
    Problem 2 (Guitar String):
-   I cruised through this one pretty easily. The toughest/most annoying part
+   I cruised through this one pretty easily. The toughest part
    was the fact that some of the values in the ring buffer are supposed to be
    defaulted to None. I would prefer if the default value for 'size', 'first',
    and 'last' were zero because that would make my job easier. I found the best
    way to get around this is to just initialize them to zero in my create() and
-   create_from_samples() functions (in the latter, the size would be the length
-   of the sample list). I feel like I'm doing something wrong there because
+   create_from_samples(). Of course, 'size' wouldn't be zero, it's the length
+   of the list. I feel like I'm doing something wrong there because
    the instructions don't mention anything about initializing the values like
    this but it makes sense to me and it works. Also, I'm not sure if my code
    for white noise is 100% correct: string[0][i] = random.random() - 0.5
@@ -38,17 +39,19 @@
    like it's fine for the purpose of this project. Other than that, I don't
    really have much to write about for this one. The code was easy, but
    understanding the writeup was a little tricky. Once I understood it, I didn't
-   have issues implimenting it. I've tried playing this one the piano. It works,
+   have issues implimenting it.
+   I've tried playing this one the piano. It works,
    but it's exteremely laggy. I get an error that says "underrun occured" in the
    terminal. It still makes the sound and doesn't crash, but that error
-   definitely explains the lag I'm getting.
+   definitely explains the lag I'm getting. What's weird is that the error
+   occurs before I even hit a key.
 
 3. Did you receive help from anyone? List their names, status (classmate, 
    CS110 grad, TA, other), and the nature of help received.
 
    Name               Status       Help Received
    ----               ------       -------------
-
+   Swami Iyer         Professor    Told me my code in problem 1 was inefficient
    ...                ...          ...
 
 4. List any other comments here. Feel free to provide any feedback on how

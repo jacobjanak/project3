@@ -29,8 +29,8 @@ def create(frequency):
     for i in range(len(rb[0])):
         rb[0][i] = 0.0
 
-    # Initialize the first and last values to index 0
-    rb[1] = 0
+    # Initialize size and the first and last values to index 0
+    rb[1] = len(rb[0])
     rb[2] = 0
     rb[3] = 0
 
@@ -63,7 +63,7 @@ def pluck(string):
     Pluck the given guitar string by replacing the buffer with white noise.
     """
 
-    for i in range(len(string[0])):
+    for i in range(ring_buffer.capacity(string)):
         string[0][i] = random.random() - 0.5
 
 
@@ -78,7 +78,7 @@ def tic(string):
     value2 = ring_buffer.peek(string)
 
     # apply the Karplus-Strong update
-    ring_buffer.enqueue(string, .996 * 0.5 * (value1 + value2))
+    ring_buffer.enqueue(string, .996 / 2 * (value1 + value2))
 
 
 def sample(string):
