@@ -43,11 +43,7 @@ def is_empty(rb):
     Return True if the buffer rb is empty and False otherwise.
     """
 
-    for i in rb[0]:
-        if i is not None:
-            return False
-
-    return True
+    return size(rb) == 0
 
 
 def is_full(rb):
@@ -55,11 +51,7 @@ def is_full(rb):
     Return True if the buffer rb is full and False otherwise.
     """
 
-    for i in rb[0]:
-        if i is None:
-            return False
-
-    return True
+    return size(rb) == capacity(rb)
 
 
 def enqueue(rb, x):
