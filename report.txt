@@ -4,9 +4,7 @@
    encountered, and how you resolved those issues.
 
    Problem 1 (Ring Buffer):
-   This problem was definitely tricky to get started on. As I progressed
-   through these two problems, I gradually got a better
-   understanding of what rb[0] through rb[3] were for. I ended up
+   This problem was definitely tricky to get started on. I ended up
    passing the test for problem 1 before I actually got it right, since the
    test just looks at the size function and doesn't *really* test enqueue or
    dequeue. My mistake was that I didn't treat the buffer as a cyclical list,
@@ -17,12 +15,11 @@
    the buffer is empty. It was a little tough writing all the extra code
    to make that happen. I think some of the code I wrote is unnecessary, but I
    wanted to make sure you could empty the buffer and re-fill it if you needed
-   to. I feel like the default values of rb[1] to rb[3] should be zero, not
-   None. It would make the calculations a lot easier.
-   After submitting this project, Professor Swami Iyer told me that my code
-   for is_empty() and is_full() was inefficient because I didn't utilize the
-   size() function to compare the size with the capacity. That was a silly
-   mistake on my part, but an easy fix. Other than that, this was easy for me.
+   to. After submitting this project, Professor Swami Iyer told me that my
+   code for is_empty() and is_full() was inefficient because I didn't utilize
+   the size() function to compare the size with the capacity. Instead, I was
+   using a for loop. That was a silly mistake on my part, but an easy fix.
+   Other than that, this was easy for me.
 
    Problem 2 (Guitar String):
    I cruised through this one pretty easily. The toughest part
@@ -30,21 +27,15 @@
    defaulted to None. I would prefer if the default value for 'size', 'first',
    and 'last' were zero because that would make my job easier. I found the best
    way to get around this is to just initialize them to zero in my create() and
-   create_from_samples(). Of course, 'size' wouldn't be zero, it's the length
-   of the list. I feel like I'm doing something wrong there because
-   the instructions don't mention anything about initializing the values like
-   this but it makes sense to me and it works. Also, I'm not sure if my code
-   for white noise is 100% correct: string[0][i] = random.random() - 0.5
+   create_from_samples(). Of course, 'size' won't be zero, it's the length
+   of the list. I'm not sure if my code for white noise is 100% correct:
+   string[0][i] = random.random() - 0.5
    The problem with it is the value would never be exactly 0.500000. I feel
    like it's fine for the purpose of this project. Other than that, I don't
-   really have much to write about for this one. The code was easy, but
-   understanding the writeup was a little tricky. Once I understood it, I didn't
-   have issues implimenting it.
-   I've tried playing this one the piano. It works,
-   but it's exteremely laggy. I get an error that says "underrun occured" in the
-   terminal. It still makes the sound and doesn't crash, but that error
-   definitely explains the lag I'm getting. What's weird is that the error
-   occurs before I even hit a key.
+   really have much to write about for this one.
+   I've tried playing this one the piano. It works, but it's exteremely
+   laggy. I spoke to my TA about this and he said the sound is correct,
+   even though it sounds bad. I wish it sounded good!
 
 3. Did you receive help from anyone? List their names, status (classmate, 
    CS110 grad, TA, other), and the nature of help received.
@@ -52,7 +43,6 @@
    Name               Status       Help Received
    ----               ------       -------------
    Swami Iyer         Professor    Told me my code in problem 1 was inefficient
-   ...                ...          ...
 
 4. List any other comments here. Feel free to provide any feedback on how
    much you learned from doing the assignment, and whether you enjoyed
@@ -60,4 +50,4 @@
 
    I enjoyed this project. Like the other projects, I feel like the challenge
    is reading and understanding the writeup/checklist, and the easy part is the
-   code.
+   code. I wish the guitar_sound_synthesis sounded better!
